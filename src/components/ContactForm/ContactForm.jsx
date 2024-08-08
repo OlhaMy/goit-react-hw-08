@@ -1,4 +1,5 @@
 import { useId } from "react";
+import s from "./ContactForm.module.css";
 
 const ContactForm = ({ onData }) => {
   const nameId = useId();
@@ -21,14 +22,23 @@ const ContactForm = ({ onData }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className={s.form} onSubmit={handleSubmit}>
         <label htmlFor={nameId}>Name</label>
-        <input type="text" name="name" id={nameId} />
+        <input className={s.input} type="text" name="name" id={nameId} />
 
         <label htmlFor={numberId}>Number</label>
-        <input type="text" name="number" id={numberId} />
+        <input
+          className={s.input}
+          type="tel"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          placeholder="123-456-7890"
+          name="number"
+          id={numberId}
+        />
 
-        <button type="submit">Add contact</button>
+        <button className={s.button} type="submit">
+          Add contact
+        </button>
       </form>
     </div>
   );

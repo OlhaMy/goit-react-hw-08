@@ -1,5 +1,4 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background: rgb(151, 149, 158);
   background: linear-gradient(
     90deg,
@@ -8,6 +7,13 @@
     rgba(224, 224, 224, 1) 43%
   );
   padding: 40px;
+  margin: 0 auto;
+}
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 ul {
   list-style: none;

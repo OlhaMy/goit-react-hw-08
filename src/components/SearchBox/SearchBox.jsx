@@ -1,4 +1,5 @@
-import { useId } from "react";
+import { useId, useState } from "react";
+import s from "./SearchBox.module.css";
 
 const SearchBox = ({ value, onChange }) => {
   const handleChange = (e) => {
@@ -9,9 +10,15 @@ const SearchBox = ({ value, onChange }) => {
   const inputId = useId();
 
   return (
-    <div>
+    <div className={s.card}>
       <label htmlFor={labelId}>Find contacts by name</label>
-      <input type="text" id={inputId} value={value} onChange={handleChange} />
+      <input
+        className={s.input}
+        type="text"
+        id={inputId}
+        value={value}
+        onChange={handleChange}
+      />
       <p>{value}</p>
     </div>
   );
