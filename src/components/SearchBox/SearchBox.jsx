@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useId } from "react";
 import s from "./SearchBox.module.css";
 
 const SearchBox = ({ value, onChange }) => {
@@ -17,9 +17,9 @@ const SearchBox = ({ value, onChange }) => {
         type="text"
         id={inputId}
         value={value}
+        placeholder="Search..."
         onChange={handleChange}
       />
-      <p>{value}</p>
     </div>
   );
 };

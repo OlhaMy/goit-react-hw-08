@@ -43,3 +43,6 @@ button:focus {
 button:active {
   box-shadow: none;
 }
+.error {
+  color: red;
+}

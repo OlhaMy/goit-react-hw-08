@@ -1,0 +1,39 @@
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 50%;
+  min-width: 340px;
+  flex: calc((100% - 50px) / 2);
+  box-sizing: border-box;
+  padding: 16px;
+  gap: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 3px 15px 3px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 3px 15px 3px rgba(0, 0, 0, 0);
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.span {
+  display: flex;
+  gap: 10px;
+}
+.button {
+  font-size: 18px;
+  font-weight: 400;
+
+  border-radius: 16px;
+  color: white;
+  background-color: #1f4266;
+  height: 35px;
+  border-style: none;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 3px 15px 3px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 3px 15px 3px rgba(0, 0, 0, 0);
+}

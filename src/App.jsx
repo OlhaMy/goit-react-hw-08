@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import "./App.css";
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactList from "./components/ContactList/ContactList";
+
+import { ContactForm, ContactList, SearchBox } from "components";
 
 function App() {
   const [contacts, setContacts] = useState(() => {
@@ -24,15 +22,29 @@ function App() {
   }, [contacts]);
 
   const addContact = (newContact) => {
+    if (!newContact.name.trim() || !newContact.number.trim()) {
+      alert("Please enter both name and number before adding a contact.");
+      return;
+    }
     setContacts((prevContacts) => [...prevContacts, newContact]);
   };
+
+  const deleteContact = (id) => {
+    setContacts((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== id)
+    );
+  };
+
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(inputValue.toLowerCase())
+  );
 
   return (
     <>
       <h1>Phonebook</h1>
       <ContactForm onData={addContact} />
       <SearchBox value={inputValue} onChange={setInputValue} />
-      <ContactList contacts={contacts} filter={inputValue} />
+      <ContactList contacts={filteredContacts} onDelete={deleteContact} />
     </>
   );
 }

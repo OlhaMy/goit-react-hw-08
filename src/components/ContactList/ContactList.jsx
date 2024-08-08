@@ -1,17 +1,18 @@
+import React from "react";
+import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
 
-const ContactList = ({ contacts, filter }) => {
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter)
-  );
-
+const ContactList = ({ contacts, onDelete }) => {
   return (
     <ul className={s.list}>
-      {filteredContacts.map(({ id, name, number }) => (
-        <li key={id} className={s.item}>
-          <span> {name}:</span>
-          <span> {number}</span>
-        </li>
+      {contacts.map(({ id, name, number }) => (
+        <Contact
+          key={id}
+          id={id}
+          name={name}
+          number={number}
+          onDelete={onDelete}
+        />
       ))}
     </ul>
   );
