@@ -1,3 +1,23 @@
+import { configureStore, createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  contacts:[],
+  numbers: [],
+
+    }
+
+    const slice = createSlice({
+        name: "contacts",
+        initialState,
+        reducers:{
+        addContacts:(state, action) =>{
+state.contacts.push(action.payload);
+        },
+    }
+    })
+export const contactsReducer = slice.reducer;
+export const (addContacts) = slice.actions;
+
 // У файлі contactsSlice.js оголоси слайс контактів, використовуючи функцію createSlice().
 
 // Екшени слайса для використання в dispatch:
