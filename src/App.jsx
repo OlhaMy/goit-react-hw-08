@@ -1,13 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addContacts,
-  deleteContact,
-  selectContacts,
-} from "./components/redux/contactsSlice";
-import {
-  setNameFilter,
-  selectNameFilter,
-} from "./components/redux/filtersSlice";
+import { addContacts, deleteContact } from "./components/redux/contactsSlice";
+import { changeFilter } from "./components/redux/filtersSlice";
+import { selectContacts, selectNameFilter } from "./components/redux/selectors";
 import { ContactForm, ContactList, SearchBox } from "components";
 
 function App() {
@@ -29,7 +23,7 @@ function App() {
   };
 
   const handleFilterChange = (e) => {
-    dispatch(setNameFilter(e.target.value));
+    dispatch(changeFilter(e.target.value));
   };
 
   const filteredContacts = contacts.filter((contact) =>
