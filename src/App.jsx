@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addContacts, deleteContact } from "./components/redux/contactsSlice";
-import { changeFilter } from "./components/redux/filtersSlice";
-import { selectContacts, selectNameFilter } from "./components/redux/selectors";
+import { addContacts, deleteContact } from "./redux/contactsSlice";
+import { changeFilter } from "./redux/filtersSlice";
+import { selectContacts, selectNameFilter } from "./redux/selectors";
 import { ContactForm, ContactList, SearchBox } from "components";
 
 function App() {
