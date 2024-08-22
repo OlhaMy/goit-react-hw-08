@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addContacts, deleteContact } from "./redux/contactsSlice";
+import { deleteContact, addContacts } from "./redux/contactsSlice";
 import { changeFilter } from "./redux/filtersSlice";
 import { selectContacts, selectNameFilter } from "./redux/selectors";
 import { ContactForm, ContactList, SearchBox } from "components";
@@ -15,6 +15,17 @@ function App() {
       alert("Please enter both name and number before adding a contact.");
       return;
     }
+
+    if (
+      contacts.some(
+        (contact) =>
+          contact.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
+      alert(`${newContact.name} is already in contacts.`);
+      return;
+    }
+
     dispatch(addContacts(newContact));
   };
 
@@ -33,7 +44,7 @@ function App() {
   return (
     <>
       <h1>Phonebook</h1>
-      <ContactForm onData={handleAddContact} />
+      <ContactForm onAddContact={handleAddContact} />
       <SearchBox value={filter} onChange={handleFilterChange} />
       <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
     </>

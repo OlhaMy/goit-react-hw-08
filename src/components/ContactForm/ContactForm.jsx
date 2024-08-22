@@ -1,6 +1,8 @@
 import { useId } from "react";
+import { useDispatch } from "react-redux";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { addContacts } from "../../redux/contactsSlice";
 import s from "./ContactForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
@@ -15,21 +17,29 @@ const FeedbackSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const ContactForm = ({ onData }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
+
   const nameId = useId();
   const numberId = useId();
+
+  const handleAddContact = (newContact, { resetForm }) => {
+    if (!newContact.name.trim() || !newContact.number.trim()) {
+      alert("Please enter both name and number before adding a contact.");
+      return;
+    }
+    dispatch(addContacts(newContact));
+    resetForm();
+  };
 
   return (
     <Formik
       initialValues={{ name: "", number: "" }}
       validationSchema={FeedbackSchema}
-      onSubmit={(values, { resetForm }) => {
-        onData({ id: Date.now(), ...values });
-        resetForm();
-      }}
+      onSubmit={handleAddContact}
     >
-      {({ handleSubmit }) => (
-        <Form className={s.form} onSubmit={handleSubmit}>
+      {() => (
+        <Form className={s.form}>
           <label htmlFor={nameId}>Name</label>
           <Field
             className={s.input}
