@@ -28,7 +28,8 @@ const ContactForm = () => {
       alert("Please enter both name and number before adding a contact.");
       return;
     }
-    dispatch(addContacts(newContact));
+    dispatch(addContacts({ ...newContact, id: nanoid() }));
+
     resetForm();
   };
 
