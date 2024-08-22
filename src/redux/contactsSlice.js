@@ -5,29 +5,34 @@ const initialState = {
   items: [],
   loading: false,
   error: null,
-  filter: { name: "" },
 };
 
 const contactsSlice = createSlice({
   name: "contacts",
   initialState,
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.items = action.payload;
-        state.loading = false;
-        state.error = null;
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.items.push(action.payload);
-        state.loading = false;
-        state.error = null;
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.items = state.items.filter((item) => item.id !== action.payload);
-        state.loading = false;
-        state.error = null;
       })
+
+      .addMatcher(
+        isAnyOf(
+          fetchContacts.fulfilled,
+          addContact.fulfilled,
+          deleteContact.fulfilled
+        ),
+        (state) => {
+          state.loading = false;
+        }
+      )
       .addMatcher(
         isAnyOf(
           fetchContacts.pending,
@@ -54,3 +59,4 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReducer = contactsSlice.reducer;
+// export const { addContact, deleteContact, fetchContacts } = slice.action;
