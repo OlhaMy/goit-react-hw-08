@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { deleteContact, addContact, fetchContacts } from "./redux/contactsOps";
 import { changeFilter } from "./redux/filtersSlice";
 import {
@@ -9,7 +10,6 @@ import {
 } from "./redux/selectors";
 import { ContactForm, ContactList, SearchBox } from "components";
 import Loader from "./components/Loader/Loader";
-import { useEffect } from "react";
 
 function App() {
   const dispatch = useDispatch();
