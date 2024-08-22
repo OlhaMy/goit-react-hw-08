@@ -2,7 +2,7 @@ import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { addContacts } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 import s from "./ContactForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
@@ -28,7 +28,7 @@ const ContactForm = () => {
       alert("Please enter both name and number before adding a contact.");
       return;
     }
-    dispatch(addContacts({ ...newContact, id: nanoid() }));
+    dispatch(addContact({ ...newContact }));
 
     resetForm();
   };

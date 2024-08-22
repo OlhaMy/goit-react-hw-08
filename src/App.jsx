@@ -1,14 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deleteContact, addContacts } from "./redux/contactsSlice";
+import { deleteContact, addContact, fetchContacts } from "./redux/contactsOps";
 import { changeFilter } from "./redux/filtersSlice";
-import { selectContacts, selectNameFilter } from "./redux/selectors";
+import {
+  selectFilteredContacts,
+  selectNameFilter,
+  selectIsError,
+  selectIsLoading,
+} from "./redux/selectors";
 import { ContactForm, ContactList, SearchBox } from "components";
+import Loader from "./components/Loader/Loader";
+import { useEffect } from "react";
 
 function App() {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(selectContacts);
+  const contacts = useSelector(selectFilteredContacts);
   const filter = useSelector(selectNameFilter);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const handleAddContact = (newContact) => {
     if (!newContact.name.trim() || !newContact.number.trim()) {
@@ -26,7 +39,7 @@ function App() {
       return;
     }
 
-    dispatch(addContacts(newContact));
+    dispatch(addContact(newContact));
   };
 
   const handleDeleteContact = (id) => {
@@ -37,16 +50,18 @@ function App() {
     dispatch(changeFilter(e.target.value));
   };
 
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
   return (
     <>
+      {isLoading && <Loader />}
       <h1>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
       <SearchBox value={filter} onChange={handleFilterChange} />
-      <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
+      {isError && (
+        <div style={{ color: "red", marginTop: "10px" }}>
+          Something went wrong, try again later!
+        </div>
+      )}
+      <ContactList contacts={contacts} onDelete={handleDeleteContact} />
     </>
   );
 }
