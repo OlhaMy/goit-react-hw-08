@@ -38,13 +38,13 @@ export const deleteContact = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (id, thunkAPI) => {
+      const isLoading = thunkAPI.getState().contacts.loading;
+      if (isLoading) {
+        return false;
+      }
+    },
   }
-  // {
-  //   condition: (id, thunkAPI) => {
-  //     const isLoading = thunkAPI.getState().contacts.isLoading;
-  //     if (isLoading) {
-  //       return false;
-  //     }
-  //   },
-  // }
 );

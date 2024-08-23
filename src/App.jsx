@@ -52,10 +52,10 @@ function App() {
 
   return (
     <>
-      {isLoading && <Loader />}
       <h1>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
       <SearchBox value={filter} onChange={handleFilterChange} />
+      {isLoading && <Loader />}
       {isError && (
         <div style={{ color: "red", marginTop: "10px" }}>
           Something went wrong, try again later!
