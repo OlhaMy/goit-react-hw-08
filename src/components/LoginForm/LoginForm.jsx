@@ -19,7 +19,9 @@ const LoginForm = ({ handleSubmit }) => {
             <Field className={s.input} type="password" name="password" />
           </label>
 
-          <button type="submit">Login</button>
+          <button className={s.button} type="submit">
+            Login
+          </button>
         </Form>
       </Formik>
     </div>
