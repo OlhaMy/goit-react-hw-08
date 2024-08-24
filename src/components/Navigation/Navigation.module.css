@@ -1,0 +1,31 @@
+.link {
+  color: black;
+  font-size: 18;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  transition-property: color, background-color, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: var(--animation-cubicBezier);
+
+  transform: scale(0.9);
+}
+
+.active {
+  composes: link;
+  color: #3f5efb;
+  text-decoration: underline;
+
+  padding: 6px 12px;
+  border-radius: 4px;
+
+  transform: scale(1);
+  pointer-events: none;
+}
+
+.link:hover,
+.link:focus {
+  color: #3f5efb;
+  text-decoration: underline;
+}
