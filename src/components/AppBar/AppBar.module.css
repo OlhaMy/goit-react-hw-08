@@ -1,10 +1,18 @@
 .header {
-  display: flex;
+  display: block;
   align-items: center;
-
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 20px;
   padding-bottom: 20px;
-  background: var(--color-mainBackground);
+  width: 100%;
+  background: rgb(63, 94, 251);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(176, 82, 175, 0.2763699229691877) 52%,
+    rgba(252, 70, 107, 1) 100%
+  );
 
   box-shadow: 0px 2px 10px 1px var(--color-dark);
   border-bottom-left-radius: 10px;
@@ -13,13 +21,14 @@
 
 .list {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
 }
 
 .link {
-  color: var(--color-light);
-  font-size: var(--font-medium);
+  color: black;
+  font-size: 18;
   font-weight: 700;
 
   text-transform: uppercase;
@@ -30,11 +39,14 @@
 
   transform: scale(0.9);
 }
-
+.span {
+  display: flex;
+  gap: 15px;
+}
 .active {
   composes: link;
-  color: var(--color-white);
-  background-color: var(--color-accent);
+  color: #3f5efb;
+  text-decoration: underline;
 
   padding: 6px 12px;
   border-radius: 4px;
@@ -45,5 +57,6 @@
 
 .link:hover,
 .link:focus {
-  color: var(--color-active);
+  color: #3f5efb;
+  text-decoration: underline;
 }
