@@ -1,4 +1,5 @@
 import { Form, Formik, Field } from "formik";
+import s from "./LoginForm.module.css";
 
 const LoginForm = ({ handleSubmit }) => {
   return (
@@ -7,20 +8,15 @@ const LoginForm = ({ handleSubmit }) => {
         initialValues={{ name: "", email: "", password: "" }}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <label>
-            Name
-            <Field type="text" name="name" />
-          </label>
-
-          <label>
+        <Form className={s.form}>
+          <label className={s.lable}>
             Email
-            <Field type="email" name="email" />
+            <Field className={s.input} type="email" name="email" />
           </label>
 
-          <label>
+          <label className={s.lable}>
             Password
-            <Field type="password" name="password" />
+            <Field className={s.input} type="password" name="password" />
           </label>
 
           <button type="submit">Login</button>

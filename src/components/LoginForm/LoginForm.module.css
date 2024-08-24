@@ -1,0 +1,15 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 400px;
+}
+.lable {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.input {
+  width: 100%;
+  height: 35px;
+}
