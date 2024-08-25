@@ -13,6 +13,7 @@ import {
 } from "../../redux/filters/selectors";
 import { ContactForm, ContactList, SearchBox } from "components";
 import Loader from "../Loader/Loader";
+import s from "./ContactApp.module.css";
 
 function ContactsApp() {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ function ContactsApp() {
 
   return (
     <>
-      <h1>Phonebook</h1>
+      <h1 className={s.title}>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
       <SearchBox value={filter} onChange={handleFilterChange} />
       {isLoading && <Loader />}

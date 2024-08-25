@@ -34,39 +34,41 @@ const ContactForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={{ name: "", number: "" }}
-      validationSchema={FeedbackSchema}
-      onSubmit={handleAddContact}
-    >
-      {() => (
-        <Form className={s.form}>
-          <label htmlFor={nameId}>Name</label>
-          <Field
-            className={s.input}
-            type="text"
-            name="name"
-            placeholder="First and Last Name"
-            id={nameId}
-          />
-          <ErrorMessage className={s.error} name="name" component="span" />
+    <div className={s.wrapper}>
+      <Formik
+        initialValues={{ name: "", number: "" }}
+        validationSchema={FeedbackSchema}
+        onSubmit={handleAddContact}
+      >
+        {() => (
+          <Form className={s.form}>
+            <label htmlFor={nameId}>Name</label>
+            <Field
+              className={s.input}
+              type="text"
+              name="name"
+              placeholder="First and Last Name"
+              id={nameId}
+            />
+            <ErrorMessage className={s.error} name="name" component="span" />
 
-          <label htmlFor={numberId}>Number</label>
-          <Field
-            className={s.input}
-            type="tel"
-            placeholder="123-22-78"
-            name="number"
-            id={numberId}
-          />
-          <ErrorMessage className={s.error} name="number" component="span" />
+            <label htmlFor={numberId}>Number</label>
+            <Field
+              className={s.input}
+              type="tel"
+              placeholder="123-22-78"
+              name="number"
+              id={numberId}
+            />
+            <ErrorMessage className={s.error} name="number" component="span" />
 
-          <button className={s.button} type="submit">
-            Add contact
-          </button>
-        </Form>
-      )}
-    </Formik>
+            <button className={s.button} type="submit">
+              Add contact
+            </button>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 };
 

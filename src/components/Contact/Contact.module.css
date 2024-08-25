@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 50%;
-  min-width: 340px;
-  flex: calc((100% - 50px) / 2);
+
+  flex: 1 1 calc(33.333% - 32px);
+  max-width: calc(33.333% - 22px);
+
   box-sizing: border-box;
   padding: 16px;
   gap: 8px;
