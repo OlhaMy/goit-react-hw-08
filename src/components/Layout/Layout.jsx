@@ -1,16 +1,14 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import { AppBar } from "../AppBar/AppBar";
+import AppBar from "../AppBar/AppBar";
+import Loader from "../Loader/Loader";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <div>
       <AppBar />
-      <section>
-        <Suspense fallback={<p>Loading...</p>}>
-          <Outlet />
-        </Suspense>
-      </section>
+
+      <Suspense fallback={<Loader />}>{children}</Suspense>
     </div>
   );
 };

@@ -6,12 +6,11 @@ import {
   fetchContacts,
 } from "../../redux/contacts/contactsOps";
 import { changeFilter } from "../../redux/filters/filtersSlice";
+import { selectIsError, selectIsLoading } from "../../redux/contacts/selectors";
 import {
-  selectFilteredContacts,
   selectNameFilter,
-  selectIsError,
-  selectIsLoading,
-} from "../../redux/contacts/selectors";
+  selectFilteredContacts,
+} from "../../redux/filters/selectors";
 import { ContactForm, ContactList, SearchBox } from "components";
 import Loader from "../Loader/Loader";
 

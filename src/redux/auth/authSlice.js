@@ -39,6 +39,16 @@ const authSlice = createSlice({
       })
       .addCase(fetchUser.rejected, (state) => {
         state.isRefreshing = false;
+      })
+
+      .addCase(register.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(logIn.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(logOut.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });
