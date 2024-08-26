@@ -4,7 +4,7 @@ import {
   deleteContact,
   addContact,
   fetchContacts,
-} from "../../redux/contacts/contactsOps";
+} from "../../redux/contacts/operations";
 import { changeFilter } from "../../redux/filters/filtersSlice";
 import { selectIsError, selectIsLoading } from "../../redux/contacts/selectors";
 import {
