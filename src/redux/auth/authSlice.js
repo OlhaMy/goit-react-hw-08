@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, logIn, logOut, fetchUser } from "./authOps";
+import { register, logIn, logOut, fetchUser } from "./operations";
 
 const authSlice = createSlice({
   name: "auth",

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import { logIn } from "../../redux/auth/authOps";
+import { logIn } from "../../redux/auth/operations";
 import s from "./LoginForm.module.css";
 
 const schema = yup.object().shape({

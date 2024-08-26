@@ -1,7 +1,7 @@
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/authOps";
+import { register } from "../../redux/auth/operations";
 import * as yup from "yup";
 import s from "./RegisterForm.module.css";
 
