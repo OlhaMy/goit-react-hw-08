@@ -58,7 +58,12 @@ const LoginForm = () => {
 
           <label className={s.label}>
             Password
-            <Field className={s.input} type="password" name="password" />
+            <Field
+              className={s.input}
+              type="password"
+              name="password"
+              style={{ marginBottom: 35 }}
+            />
           </label>
           <ErrorMessage
             name="password"

@@ -56,7 +56,9 @@ function ContactsApp() {
 
   return (
     <>
-      <h1 className={s.title}>Phonebook</h1>
+      <h3 className={s.title}>
+        You can save and search your contacts on this page
+      </h3>
       <ContactForm onAddContact={handleAddContact} />
       <SearchBox value={filter} onChange={handleFilterChange} />
       {isLoading && <Loader />}

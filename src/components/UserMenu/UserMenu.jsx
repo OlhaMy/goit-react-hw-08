@@ -9,7 +9,7 @@ const UserMenu = () => {
 
   return (
     <div className={s.wrapper}>
-      <p className={s.username}>Welcome, {name}</p>
+      <h3 className={s.username}>Welcome, {name}</h3>
       <button
         type="button"
         onClick={() => {

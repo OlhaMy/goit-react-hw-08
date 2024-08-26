@@ -1,4 +1,6 @@
 .link {
+  display: inline-flex;
+
   color: black;
   font-size: 18;
   font-weight: 700;
@@ -7,9 +9,11 @@
 
   transition-property: color, background-color, transform;
   transition-duration: 0.2s;
-  transition-timing-function: var(--animation-cubicBezier);
 
   transform: scale(0.9);
+}
+.link:not(:last-of-type) {
+  margin-right: 25px;
 }
 
 .active {
